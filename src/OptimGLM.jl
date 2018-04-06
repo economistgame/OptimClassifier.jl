@@ -7,7 +7,8 @@ testing = data["testing"]
 Modelo = glm(formula, training, Normal(), IdentityLink())
 Prediccion = predict(Modelo, testing)
 RMSE = (testing[responsevar] - Prediccion)^2
+threshold = 0:0.05:1
 
+#How to square each element of an array in Array class in Julia?
 
-#How to square each element of an array in Array class in Ruby?
 end
