@@ -1,17 +1,19 @@
 # Sampler in R, splitter in Julia
 """
-    splitter{data,p,seed=0}()
+    splitter(data,p,seed=0)
+
     A training/test partition are created by splitter function.
 
 
 ## Examples
+
 ```julia-repl
 
-julia>using DataFrames
+julia> using DataFrames
 
-julia>data = DataFrame(X=[1,2,3], Y=[2,4,7])
+julia> data = DataFrame(X=[1,2,3], Y=[2,4,7])
 
-julia>splitter(data,0.7,0)
+julia> Data = splitter(data,0.7,0)
 
 ```
 """

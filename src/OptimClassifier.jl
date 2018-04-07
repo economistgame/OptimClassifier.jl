@@ -4,7 +4,7 @@ module OptimClassifier
     using DataFrames
 
     export                              # types
-        slitter,
+        splitter,
         rmse,
         OptimGLM,
         MC
@@ -13,7 +13,7 @@ module OptimClassifier
 
 include("MC.jl")
 include("RMSE.jl")
-include("sampler.jl")
+include("splitter.jl")
 include("utils.jl")
 include("OptimGLM.jl")
 end

@@ -8,7 +8,7 @@ makedocs(;
     ],
     repo="https://github.com/economistgame/OptimClassifier.jl/blob/{commit}{path}#L{line}",
     sitename="OptimClassifier.jl",
-    authors="economistgame",
+    authors="Agustín Pérez Torregrosa",
     assets=[],
 )
 
