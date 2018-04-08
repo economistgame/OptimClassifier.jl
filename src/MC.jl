@@ -1,6 +1,6 @@
-### No funciona
-t = [1,2,3,3,2,1,4,4,5,6]
-t2= [3,2,1,3,2,1,5,6,7,4]
+#t = [1,2,3,3,2,1,4,4,5,6]
+#t2= [3,2,1,3,2,1,5,6,7,4]
+#R = MC(t,t2)
 
 function MC(y,yhat, metrics =false)
     # Generate confusion matrix
@@ -30,4 +30,3 @@ function MC(y,yhat, metrics =false)
     end
     return cm
 end
-R = MC(t,t2)
