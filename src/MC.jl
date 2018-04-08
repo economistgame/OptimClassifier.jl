@@ -2,7 +2,7 @@
 #t2= [3,2,1,3,2,1,5,6,7,4]
 #R = MC(t,t2)
 
-function MC(y,yhat, metrics =false)
+function MC(y,yhat, metrics = false)
     # Generate confusion matrix
     classes = unique(append!(unique(y), unique(yhat)))
     cm = zeros(Int64,length(classes),length(classes))
@@ -18,11 +18,17 @@ function MC(y,yhat, metrics =false)
        Success_rate = sum(Diagonal(cm))/sum(cm)
        tI_error = (sum(UpperTriangular(cm))-sum(Diagonal(cm)))/sum(cm)
        tII_error = (sum(LowerTriangular(cm))-sum(Diagonal(cm)))/sum(cm)
-       #Sensitivity = Diagonal(cm)/colSums(cm)
        Prevalence = colSums(cm)/sum(cm)
+
+       ## Sensitivity Function
+       function Sensitivity_F(N,Matrix)
+           Diagonal(Matrix)[N]/colSums(Matrix)[N]
+       end
+       ## Specificity Function
        function Specificity_F(N,Matrix)
            sum(Diagonal(Matrix)[-N])/sum(colSums(Matrix)[-N])
        end
+       ## Precision Function
        function Precision_F(N,Matrix)
            Diagonal(Matrix)[N]/ sum(Diagonal(Matrix))
        end
