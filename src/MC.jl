@@ -26,16 +26,17 @@ function MC(y,yhat, metrics = false)
        end
        ## Specificity Function
        function Specificity_F(N,Matrix)
-           sum(Diagonal(Matrix)[-N])/sum(colSums(Matrix)[-N])
+           (sum(Diagonal(Matrix))-Diagonal(Matrix)[N])/(sum(colSums(Matrix))-sum(colSums(Matrix)[N]))
        end
        ## Precision Function
        function Precision_F(N,Matrix)
            Diagonal(Matrix)[N]/ sum(Diagonal(Matrix))
        end
        Sensitivity = map(x -> Sensitivity_F(x,cm), 1:length(Prevalence))
+       #Try new values
        Specificity = map(x -> Specificity_F(x,cm), 1:length(Prevalence))
        Precision = map(x -> Precision_F(x,cm), 1:length(Prevalence))
-
     end
+    
     return cm
 end
