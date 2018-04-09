@@ -11,7 +11,16 @@ threshold = 0:0.05:1
 
 Filtro1 = map(x -> Compare(x,0.5),Prediccion)
 Filtro2 = map(x -> ifelse(x,1,0),Filtro1)
+cm = MC(testing[responsevar], Filtro2)
+Success_rate = sum(Diagonal(cm))/sum(cm)
+tI_error = (sum(UpperTriangular(cm))-sum(Diagonal(cm)))/sum(cm)
+tII_error = (sum(LowerTriangular(cm))-sum(Diagonal(cm)))/sum(cm)
 
-#How to square each element of an array in Array class in Julia?
+models = DataFrame(Model="GLMSimple",
+          success_rate=Success_rate,
+          ti_error=tI_error,
+          tii_error=tII_error)
+
+return models
 
 end
